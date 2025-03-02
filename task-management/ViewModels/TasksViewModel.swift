@@ -8,19 +8,25 @@
 import Foundation
 
 class TasksViewModel: ObservableObject {
-    @Published var tasks: [TaskModel] = []
+    let tasksKey: String = "TASKS_KEY"
+    
+    @Published var tasks: [TaskModel] = [] {
+        didSet {
+            saveTasks()
+        }
+    }
     
     init() {
         getTasks()
     }
     
     func getTasks() {
-        let newTasks = [
-            TaskModel(task: "First task", isCompleted: false, isPrioritized: true),
-            TaskModel(task: "Second task", isCompleted: true, isPrioritized: false),
-            TaskModel(task: "Third task", isCompleted: true, isPrioritized: false)
-        ];
-        tasks.append(contentsOf: newTasks)
+        guard
+            let data = UserDefaults.standard.data(forKey: tasksKey),
+            let decodedData = try? JSONDecoder().decode([TaskModel].self, from: data)
+        else { return }
+        
+        self.tasks = decodedData
     }
     
     func deleteTask(indexSet: IndexSet) {
@@ -33,12 +39,22 @@ class TasksViewModel: ObservableObject {
     
     func addTask(title: String, isPrioritized: Bool) {
         let newTask = TaskModel(task: title, isCompleted: false, isPrioritized: isPrioritized)
+        
+        if isPrioritized {
+            tasks.insert(newTask, at: 0)
+        }
         tasks.append(newTask)
     }
     
     func updateTask(task: TaskModel) {
         if let index = tasks.firstIndex(where: { $0.id == task.id }) {
             tasks[index] = task.updateTaskCompletion()
+        }
+    }
+    
+    func saveTasks() {
+        if let encodedData = try? JSONEncoder().encode(tasks) {
+            UserDefaults.standard.set(encodedData, forKey: tasksKey)
         }
     }
 }
