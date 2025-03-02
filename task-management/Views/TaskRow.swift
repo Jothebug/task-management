@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TaskRow: View {
-    
     let item: TaskModel
-    
     var body: some View {
         HStack {
             Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
@@ -18,7 +16,7 @@ struct TaskRow: View {
             Text(item.task)
             Spacer()
             Text("|")
-                .foregroundColor(item.isPrioritized ? .red : .gray)
+                .foregroundColor(item.isPrioritized ? .orange : .gray)
         }
         .font(.title2)
         .padding(.vertical, 6)

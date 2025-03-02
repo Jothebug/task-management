@@ -15,6 +15,7 @@
 		B50C34022D7372BC005418D1 /* AddTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50C34012D7372BC005418D1 /* AddTask.swift */; };
 		B50C34052D737B49005418D1 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50C34042D737B49005418D1 /* TaskModel.swift */; };
 		B536F2E72D73F86400819452 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536F2E62D73F86400819452 /* TasksViewModel.swift */; };
+		B536F2E92D740EEF00819452 /* CustomCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536F2E82D740EEF00819452 /* CustomCheckboxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B50C34012D7372BC005418D1 /* AddTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTask.swift; sourceTree = "<group>"; };
 		B50C34042D737B49005418D1 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		B536F2E62D73F86400819452 /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		B536F2E82D740EEF00819452 /* CustomCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckboxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				B50C33FB2D7368EA005418D1 /* ListTasksView.swift */,
 				B50C33FF2D736D2D005418D1 /* TaskRow.swift */,
 				B50C34012D7372BC005418D1 /* AddTask.swift */,
+				B536F2E82D740EEF00819452 /* CustomCheckboxView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			files = (
 				B50C34022D7372BC005418D1 /* AddTask.swift in Sources */,
 				B536F2E72D73F86400819452 /* TasksViewModel.swift in Sources */,
+				B536F2E92D740EEF00819452 /* CustomCheckboxView.swift in Sources */,
 				B50C33EB2D73681C005418D1 /* task_managementApp.swift in Sources */,
 				B50C34052D737B49005418D1 /* TaskModel.swift in Sources */,
 				B50C33FC2D7368EA005418D1 /* ListTasksView.swift in Sources */,

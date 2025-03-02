@@ -30,7 +30,8 @@ struct AddTask: View {
                         Text("Is the task a priority?")
                             .font(.title3)
                     }
-                    .toggleStyle(CheckboxToggleStyle())
+                    .toggleStyle(CustomCheckboxView())
+                
                 Button(action: saveBtnPressed, label: {
                     Text("Save".uppercased())
                         .foregroundColor(.white)
@@ -66,24 +67,6 @@ struct AddTask: View {
     
     func getAlert() -> Alert {
         Alert(title: Text(alertTitle))
-    }
-}
-
-struct CheckboxToggleStyle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        HStack {
-            Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
-                .resizable()
-                .frame(width: 22, height: 22)
-                .foregroundColor(configuration.isOn ? .blue : Color(.systemGray))
-                .onTapGesture {
-                    configuration.isOn.toggle()
-                }
-            
-            configuration.label
-            Spacer()
-        }
-        .frame(maxWidth: .infinity)
     }
 }
 
