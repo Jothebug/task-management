@@ -14,9 +14,11 @@ struct TaskRow: View {
     var body: some View {
         HStack {
             Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
-                .foregroundColor(item.isCompleted ? .green : .red)
+               .foregroundColor(item.isCompleted ? .green : .red)
             Text(item.task)
             Spacer()
+            Text("|")
+                .foregroundColor(item.isPrioritized ? .red : .gray)
         }
         .font(.title2)
         .padding(.vertical, 6)
@@ -24,5 +26,5 @@ struct TaskRow: View {
 }
 
 #Preview {
-    TaskRow(item: TaskModel(task: "First task", isCompleted: false))
+    TaskRow(item: TaskModel(task: "First task", isCompleted: false, isPrioritized: false))
 }

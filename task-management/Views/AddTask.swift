@@ -15,16 +15,22 @@ struct AddTask: View {
     
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
+    @State var isChecked: Bool = false
     
     var body: some View {
         ScrollView {
             VStack {
-                TextField("Type task here...", text: $textFieldText )
-                    .padding(.horizontal)
-                    .frame(height: 55)
-                    .background(Color(.systemGray5))
-                    .cornerRadius(10)
-                
+                    TextField("Type task here...", text: $textFieldText )
+                        .padding(.horizontal)
+                        .frame(height: 55)
+                        .background(Color(.systemGray5))
+                        .cornerRadius(10)
+                    
+                    Toggle(isOn: $isChecked) {
+                        Text("Is the task a priority?")
+                            .font(.title3)
+                    }
+                    .toggleStyle(CheckboxToggleStyle())
                 Button(action: saveBtnPressed, label: {
                     Text("Save".uppercased())
                         .foregroundColor(.white)
@@ -36,6 +42,7 @@ struct AddTask: View {
                 })
             }
             .padding(14)
+            
         }
         .navigationTitle("Add task")
         .alert(isPresented: $showAlert, content: getAlert)
@@ -43,7 +50,7 @@ struct AddTask: View {
     
     func saveBtnPressed() {
         if textIsAppropriate() {
-            tasksViewModel.addTask(title: textFieldText)
+            tasksViewModel.addTask(title: textFieldText, isPrioritized: isChecked)
             presentationMode.wrappedValue.dismiss() // auto goback into the previous screen
         }
     }
@@ -59,6 +66,24 @@ struct AddTask: View {
     
     func getAlert() -> Alert {
         Alert(title: Text(alertTitle))
+    }
+}
+
+struct CheckboxToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
+                .resizable()
+                .frame(width: 22, height: 22)
+                .foregroundColor(configuration.isOn ? .blue : Color(.systemGray))
+                .onTapGesture {
+                    configuration.isOn.toggle()
+                }
+            
+            configuration.label
+            Spacer()
+        }
+        .frame(maxWidth: .infinity)
     }
 }
 

@@ -8,7 +8,19 @@
 import Foundation
 
 struct TaskModel: Identifiable {
-    let id: String = UUID().uuidString
+    let id: String
     let task: String
     let isCompleted: Bool
+    let isPrioritized: Bool
+    
+    init(id: String = UUID().uuidString, task: String, isCompleted: Bool, isPrioritized: Bool) {
+        self.id = id
+        self.task = task
+        self.isCompleted = isCompleted
+        self.isPrioritized = isPrioritized
+    }
+    
+    func updateTaskCompletion() -> TaskModel {
+        return TaskModel(id: id, task: task, isCompleted: !isCompleted, isPrioritized: isPrioritized)
+    }
 }
