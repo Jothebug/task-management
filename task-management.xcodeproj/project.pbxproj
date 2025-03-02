@@ -16,6 +16,8 @@
 		B50C34052D737B49005418D1 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50C34042D737B49005418D1 /* TaskModel.swift */; };
 		B536F2E72D73F86400819452 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536F2E62D73F86400819452 /* TasksViewModel.swift */; };
 		B536F2E92D740EEF00819452 /* CustomCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536F2E82D740EEF00819452 /* CustomCheckboxView.swift */; };
+		B536F2EB2D743AF600819452 /* EmptyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536F2EA2D743AF600819452 /* EmptyTask.swift */; };
+		B536F2ED2D74439600819452 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B536F2EC2D74439600819452 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		B50C34042D737B49005418D1 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		B536F2E62D73F86400819452 /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 		B536F2E82D740EEF00819452 /* CustomCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckboxView.swift; sourceTree = "<group>"; };
+		B536F2EA2D743AF600819452 /* EmptyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTask.swift; sourceTree = "<group>"; };
+		B536F2EC2D74439600819452 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				B50C33FF2D736D2D005418D1 /* TaskRow.swift */,
 				B50C34012D7372BC005418D1 /* AddTask.swift */,
 				B536F2E82D740EEF00819452 /* CustomCheckboxView.swift */,
+				B536F2EA2D743AF600819452 /* EmptyTask.swift */,
+				B536F2EC2D74439600819452 /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +170,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B536F2ED2D74439600819452 /* Launch Screen.storyboard in Resources */,
 				B50C33F22D73681D005418D1 /* Preview Assets.xcassets in Resources */,
 				B50C33EF2D73681D005418D1 /* Assets.xcassets in Resources */,
 			);
@@ -180,6 +187,7 @@
 				B536F2E72D73F86400819452 /* TasksViewModel.swift in Sources */,
 				B536F2E92D740EEF00819452 /* CustomCheckboxView.swift in Sources */,
 				B50C33EB2D73681C005418D1 /* task_managementApp.swift in Sources */,
+				B536F2EB2D743AF600819452 /* EmptyTask.swift in Sources */,
 				B50C34052D737B49005418D1 /* TaskModel.swift in Sources */,
 				B50C33FC2D7368EA005418D1 /* ListTasksView.swift in Sources */,
 				B50C34002D736D2D005418D1 /* TaskRow.swift in Sources */,
@@ -319,9 +327,11 @@
 				DEVELOPMENT_TEAM = 7TJ6PY5W65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = tasks;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -348,9 +358,11 @@
 				DEVELOPMENT_TEAM = 7TJ6PY5W65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = tasks;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

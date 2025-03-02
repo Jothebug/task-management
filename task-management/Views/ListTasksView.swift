@@ -10,25 +10,33 @@ import SwiftUI
 struct ListTasksView: View {
     
     @EnvironmentObject var tasksViewModel: TasksViewModel
-    
     var body: some View {
-        List {
-            ForEach(tasksViewModel.tasks) { item in
-                TaskRow(item: item)
-                    .onTapGesture {
-                        withAnimation(.linear) {
-                            tasksViewModel.updateTask(task: item)
-                        }
+        ZStack {
+            if tasksViewModel.tasks.isEmpty {
+                EmptyTask()
+                    .transition(AnyTransition.opacity.animation(.linear))
+            } else {
+                List {
+                    ForEach(tasksViewModel.tasks) { item in
+                        TaskRow(item: item)
+                            .onTapGesture {
+                                withAnimation(.linear) {
+                                    tasksViewModel.updateTask(task: item)
+                                }
+                            }
                     }
+                    .onDelete(perform: tasksViewModel.deleteTask)
+                    .onMove(perform: tasksViewModel.moveTask)
+                }
             }
-            .onDelete(perform: tasksViewModel.deleteTask)
-            .onMove(perform: tasksViewModel.moveTask)
         }
         .navigationTitle("Tasks")
         .listStyle(.plain)
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                EditButton() // Must be inside a closure
+            if !tasksViewModel.tasks.isEmpty {
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton() // Must be inside a closure
+                }
             }
             ToolbarItem(placement: .topBarTrailing) {
                 NavigationLink("Add", destination: AddTask())

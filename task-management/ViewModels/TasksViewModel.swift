@@ -42,8 +42,9 @@ class TasksViewModel: ObservableObject {
         
         if isPrioritized {
             tasks.insert(newTask, at: 0)
+        } else {
+            tasks.append(newTask)
         }
-        tasks.append(newTask)
     }
     
     func updateTask(task: TaskModel) {
