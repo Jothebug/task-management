@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct ListTasksView: View {
-   
-    @State var tasks : [TaskModel] = [
-        TaskModel(task: "First task", isCompleted: false),
-        TaskModel(task: "Second task", isCompleted: true),
-        TaskModel(task: "Third task", isCompleted: true)
-    ];
+    
+    @EnvironmentObject var tasksViewModel: TasksViewModel
     
     var body: some View {
         List {
-            ForEach(tasks) { item in
+            ForEach(tasksViewModel.tasks) { item in
                 TaskRow(item: item)
             }
-          
+            .onDelete(perform: tasksViewModel.deleteTask)
+            .onMove(perform: tasksViewModel.moveTask)
         }
         .navigationTitle("Tasks")
         .listStyle(.plain)
@@ -29,7 +26,7 @@ struct ListTasksView: View {
                 EditButton() // Must be inside a closure
             }
             ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink("Add", destination: AddTask()) // Use label instead of title
+                NavigationLink("Add", destination: AddTask())
             }
         }
     }
@@ -39,4 +36,5 @@ struct ListTasksView: View {
     NavigationStack {
         ListTasksView()
     }
+    .environmentObject(TasksViewModel())
 }

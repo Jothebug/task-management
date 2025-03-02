@@ -9,11 +9,15 @@ import SwiftUI
 
 @main
 struct task_managementApp: App {
+    
+    @StateObject var tasksViewModel: TasksViewModel = TasksViewModel()
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 ListTasksView()
             }
+            .environmentObject(tasksViewModel)
         }
     }
 }
